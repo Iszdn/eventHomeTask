@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./assets/style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- formumuz açılır -->
+    <form action="" id="userForm">
+      <label>Firstname:</label>
+      <input tabindex="1" type="text" id="firstname" /><br />
+
+      <label>Lastname:</label>
+      <input tabindex="2" type="text" id="lastname" /><br />
+
+      <label>Age:</label>
+      <input tabindex="3" type="number" id="age" /><br />
+
+      <label>Married:</label>
+      <input tabindex="4" type="text" id="married" /><br />
+
+      <input type="submit" id="creatUser" value="Creat User" />
+    </form>
+    <!-- formumuz bitir -->
+
+    <!-- tablemiz açılır -->
+    <table id="userTable">
+      <thead>
+        <tr>
+          <th>FirstName</th>
+          <th>LastName</th>
+          <th>Age</th>
+          <th>Married</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    <!-- tablemiz bağlanır -->
+    <script> 
+    // elementleri tanidag
+      let firstname = document.getElementById("firstname");
+      let lastname = document.getElementById("lastname");
+      let age = document.getElementById("age");
+      let married = document.getElementById("married");
+
+    //  click yaradag
+      let creatUser = document.getElementById("creatUser").addEventListener("click", (event) => {
+          event.preventDefault();
+
+            if (firstname.value==="" || lastname.value==="" || age.value==="" || married.value==="" ) {
+              alert("Xahiş edirik bütün sahələri doldurun.");
+              return;
+            }
+
+          const tbody = document.querySelector("tbody");
+
+        //   datalar ucun tablellar
+          let tr=document.createElement("tr")
+          let data = document.createElement("td");
+          let data1=document.createElement("td");
+          let data2=document.createElement("td");
+          let data3=document.createElement("td");
+          
+
+          data.innerHTML = firstname.value 
+          data1.innerHTML = lastname.value
+          data2.innerHTML = age.value
+          data3.innerHTML = married.value
+
+          tr.append(data,data1,data2,data3);
+          tbody.append(tr);
+          
+        });
+    </script>
+  </body>
+</html>
